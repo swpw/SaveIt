@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+<!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Link -->
+  	<link rel="stylesheet" type="text/css" href="./stylesheets/reset.css">
+  	<link rel="stylesheet" type="text/css" href="./stylesheets/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
+<!--  -->
+    <title> SaveIt | popup page </title>
+  </head>
+  <body class="popup">
+
+    <div class="container">
+      <header class="header">
+        <h1 class="header__heading">SaveIt</h1>
+        <ul class="list">
+          <li class="list__item">
+            <a class="list__link" href="../words/words.html" target="_blank">
+              <img class="list__icon" src="../../icons/list.svg"> wordlist
+            </a>
+          </li>
+          <li class="list__item">
+            <a class="list__link" href="../options/options.html" target="_blank">
+              <img class="list__icon list__icon--settings" src="../../icons/settings.svg"> options
+            </a>
+          </li>
+        </ul>
+      </header>
+
+      <main class="main">
+        <form class="form">
+          <input class="form__input" type="text" placeholder="Add word..">
+          <input class="form__submit" value="Add" type="submit">
+        </form>
+      </main>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+=e($element)
+  &__#{$element}
+    @content
+
+=m($modifer)
+  &--#{$modifer}
+    @content
+
+//
+
+@function color($color-name)
+  @return map-get($default-colors, $color-name)
+
+$default-colors: (white: #FAFAFA, white2: #EEEEEE, gray: #424242, blue: #2196f3, blue-hover: #1976d2)
+
+//
+
+*, *::before, *::after
+  box-sizing: border-box
+  outline: none
+
+// Keep one file import on at once
+// @import popup.sass
+// @import words.sass
+@import options.sass

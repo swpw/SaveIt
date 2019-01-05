@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+<!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Link -->
+  	<link rel="stylesheet" type="text/css" href="./stylesheets/reset.css">
+  	<link rel="stylesheet" type="text/css" href="./stylesheets/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
+    <link rel="shortcut icon" href="../../icon32.png">
+<!--  -->
+    <title> SaveIt | Dashboard </title>
+  </head>
+  <body class="words">
+
+    <header class="header">
+      <div class="header__wrapper">
+        <div class="header__left-container">
+          <div class="header__logo-container">
+            <img class="header__logo" src="../icon32.png">
+            <h1 class="header__heading">SaveIt</h1>
+          </div>
+          <input class="header__search" type="search" placeholder="Search">
+        </div>
+        <nav class="nav">
+          <ul class="list">
+            <li class="list__item">
+              <a href="words.html" class="list__link">
+                <img class="list__icon" src="../../icons/list-white.svg"> wordlist
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="../options/options.html" class="list__link">
+                <img class="list__icon list__icon--settings" src="../../icons/settings-white.svg"> options
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <aside class="aside">
+      <ul class="aside-list">
+        <li class="aside-list__item">
+          <select class="filter">
+            <option value="ascending">ascending</option>
+            <option value="descending">descending</option>
+            <option value="old-date" selected>date (old)</option>
+            <option value="new-date">date (new)</option>
+            <option value="fav">marked</option>
+            <option value="not-fav">unmarked</option>
+          </select>
+        </li>
+        <li class="aside-list__item">
+          <p id="import" class="aside-list__paragraph">import</p>
+        </li>
+        <li class="aside-list__item">
+          <p id="export" class="aside-list__paragraph">export</p>
+        </li>
+        <li class="aside-list__item">
+          <p id="deleteAll" class="aside-list__paragraph">delete library</p>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <section class="main__output">
+        <p class="main__wordsCount">0 words found.</p>
+        <ul class="results">
+
+        </ul>
+      </section>
+    </main>
+
+    <script src="words.js"></script>
+  </body>
+</html>

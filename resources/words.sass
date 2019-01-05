@@ -1,0 +1,321 @@
+$font: 14px
+$font-big: 30px
+$padding: 15px
+$mainShadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12)
+$maxWidth: 1140px
+
+=main-results
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 15px
+
+//
+
+.words
+  background: color(white2)
+  font-family: 'Roboto', sans-serif
+  color: color(gray)
+  font-size: $font
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration
+  display: none
+
+.results__item ::-webkit-scrollbar
+  width: 0px
+  height: 0px
+
+/* Header */
+
+.header
+  position: fixed
+  top: 0
+  left: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  background: color(blue)
+  padding: $padding
+  color: color(white)
+  height: 65px
+  width: 100vw
+  box-shadow: 0 1px 2px rgba(#000,.5)
+  z-index: 1
+  +e('wrapper')
+    display: flex
+    justify-content: space-between
+    width: $maxWidth
+    height: 100%
+  +e('left-container')
+    display: flex
+  +e('logo-container')
+    display: flex
+  +e('heading')
+    font-size: $font-big
+    font-weight: 500
+    letter-spacing: -1px
+    color: color(white)
+    user-select: none
+    margin-left: 10px
+  +e('logo')
+    padding: 0 5px
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    width: 34px
+    height: 34px
+    object-fit: contain
+  +e('search')
+    width: 400px
+    margin-left: 75px
+    border: none
+    background: rgba(#fff,.14)
+    border-radius: 5px
+    padding: 0 $padding
+    color: color(white)
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    box-shadow: $mainShadow
+    &::placeholder
+      color: color(white)
+    &:hover,
+    &:focus
+      background: rgba(#fff,.25)
+
+.nav
+  display: flex
+  justify-content: center
+  align-items: center
+
+.list
+  display: flex
+  +e('item')
+    margin: 0 15px
+  +e('link')
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 16px
+    height: 30px
+    text-transform: capitalize
+    border-bottom: 2px solid transparent
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    cursor: pointer
+    padding: 5px
+    user-select: none
+    border-radius: 5px
+    color: color(white)
+    text-decoration: none
+    &:hover
+      box-shadow: $mainShadow
+  +e('icon')
+    width: 30px
+    height: 30px
+    margin-right: 3px
+    +m('settings')
+      width: 25px
+      height: 25px
+
+/* Aside */
+
+.aside
+  position: fixed
+  top: 65px
+  left: 0
+  height: calc(100vh - 65px)
+  background: color(white)
+  border-right: 1px solid rgba(#000,.42)
+
+.aside-list
+  width: 200px
+
+.aside-list__item
+  margin: 15px 0
+  border-bottom: 1px dashed rgba(#000,.42)
+  padding: 5px 15px 15px 15px
+
+.aside-list__paragraph
+  text-transform: capitalize
+  font-weight: 500
+  font-size: $font + 2px
+  cursor: pointer
+  color: rgba(#000,.42)
+  user-select: none
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1)
+  margin: 0 5px
+  &:hover
+    color: color(gray)
+
+.filter
+  border: none
+  background: transparent
+  border-bottom: 1px solid rgba(#000,.42)
+  color: rgba(#000,.6)
+  padding: 5px
+  margin-top: 20px
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1)
+  &:hover
+    border-bottom-color: color(gray)
+    color: color(gray)
+
+/* Main */
+
+.main
+  padding-top: 65px
+  padding-bottom: 45px
+  display: flex
+  justify-content: center
+  +e('output')
+    width: $maxWidth
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: center
+  +e('wordsCount')
+    margin: 2rem 0 0.5rem 0
+    padding: 0 5px
+    font-weight: 400
+    font-size: $font + 2px
+    font-style: italic
+    color: color(gray)
+
+.results
+  display: flex
+  flex-direction: column
+  align-items: center
+  background: rgba(#000,.25)
+  padding: 1px
+  +e('item')
+    display: flex
+    justify-content: center
+    margin-bottom: 1px
+    width: $maxWidth
+    background: color(white)
+    line-height: 23px
+    font-size: $font
+    &:last-child
+      margin-bottom: 0
+    +m('not-visible')
+      display: none
+
+.modify
+  // background: #82db78
+  display: flex
+  justify-content: space-evenly
+  align-items: center
+  width: 95px
+  user-select: none
+  +e('icon')
+    +m('edit')
+      cursor: pointer
+    +m('delete')
+      cursor: pointer
+    +m('check')
+      cursor: pointer
+
+.text
+  +main-results
+  // background: #ec61ea
+  width: 297.5px
+  +e('paragraph')
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    height: 100%
+    overflow-x: auto
+    +m('edit-enable')
+      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1)
+      padding: 5px
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.07), 0 3px 1px -2px rgba(0, 0, 0, 0.06)
+      border-radius: 5px
+      background: rgba(#2196f4, 0.05)
+      &:hover
+        box-shadow: $mainShadow
+        background: transparent
+
+.user-text
+  +main-results
+  // background: #997e3c
+  width: 297.5px
+  +e('paragraph')
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    height: 100%
+    overflow-x: auto
+    +m('edit-enable')
+      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1)
+      padding: 5px
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.07), 0 3px 1px -2px rgba(0, 0, 0, 0.06)
+      border-radius: 5px
+      background: rgba(#2196f4, 0.05)
+      &:hover
+        box-shadow: $mainShadow
+        background: transparent
+
+
+.date
+  +main-results
+  // background: #d2aa8d
+  width: 150px
+  +e('paragraph')
+
+.website
+  overflow: auto
+  +main-results
+  // background: #ddabf6
+  width: 250px
+  +e('paragraph')
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+
+.favorite, .not-favorite
+  +main-results
+  user-select: none
+  // background: #12b1c6
+  width: 50px
+  +e('icon')
+    cursor: pointer
+
+
+/* Media */
+
+@media (max-width: 1600px)
+  .main
+    padding-left: 230px
+    justify-content: flex-start
+
+@media (max-width: 1410px)
+  .main
+    padding-left: 200px
+  .main__output
+    align-items: center
+  .results__item
+    width: 940px
+  .text
+    width: 250px
+  .user-text
+    width: 250px
+  .website
+    width: 145px
+
+@media (max-width: 1210px)
+  .date, .website
+    display: none
+  .results__item
+    justify-content: flex-start
+    width: auto
+
+@media (max-width: 900px)
+  .text, .user-text
+    width: 200px
+  .header__search
+    width: 250px
+
+@media (max-width: 768px)
+  .text, .user-text
+    width: 200px
