@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "SaveIt",
-  "version": "1.0",
+  "name": "Save It",
+  "version": "1.0.1",
   "description": "Save, view and edit your favourite words. Forgot your words translation? Add description to them.",
   "homepage_url": "https://github.com/swpw/SaveIt",
   "icons": {
