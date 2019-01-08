@@ -15,7 +15,7 @@ This extension allows users to save any text to google chrome's storage and late
 
 ### 1. Usage
 
-Install extension from [chrome web store](www).
+Install extension from [chrome web store](https://chrome.google.com/webstore/detail/save-it/ecojcaocmonpinbacfiglhcjedpcbjcf).
 
 ### 2. Development
 
