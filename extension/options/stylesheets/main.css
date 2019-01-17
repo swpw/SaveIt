@@ -90,7 +90,7 @@
   min-height: 100vh;
   min-height: calc(100vh - 65px); }
 
-.notify {
+.settings {
   width: 900px;
   margin-bottom: 15px;
   padding: 25px 0;
@@ -100,20 +100,20 @@
   justify-content: center;
   background: #FAFAFA;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); }
-  .notify:first-child {
+  .settings:first-child {
     margin-top: 15px; }
-  .notify__title {
+  .settings__title {
     font-size: 30px; }
-  .notify__label {
+  .settings__label {
     display: flex;
     align-items: center;
     padding: 5px;
     margin-top: 20px; }
-  .notify__paragraph {
+  .settings__paragraph {
     margin-left: 10px; }
 
 @media (max-width: 900px) {
-  .notify {
+  .settings {
     width: 100%; } }
 
 /*# sourceMappingURL=main.css.map */

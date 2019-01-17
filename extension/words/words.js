@@ -100,52 +100,54 @@ search.addEventListener('keyup', e => {
 //
 
 function createElements(array) {
-  const removeResults = document.querySelectorAll('.results__item');
-  for (const el of removeResults) {
-    el.remove();
-  }
+  chrome.storage.sync.get('webUrl', obj => {
+    const removeResults = document.querySelectorAll('.results__item');
+    for (const el of removeResults) {
+      el.remove();
+    }
 
-  array.forEach(e => {
-    const { word, description, date, location, isMarked } = e;
+    array.forEach(e => {
+      const { word, description, date, location, isMarked } = e;
 
-    const html = `<div class="modify">
-        <img class="modify__icon--edit" src="../../icons/edit.svg">
-        <img class="modify__icon--delete" src="../../icons/delete.svg">
-      </div>
-      <div class="text">
-        <p class="text__paragraph">${word}</p>
-      </div>
-      <div class="user-text">
-        <p class="user-text__paragraph">${description}</p>
-      </div>
-      <div class="date">
-        <p class="date__paragraph">${dateFormat(new Date(date))}</p>
-      </div>
-      <div class="website">
-        <p class="website__paragraph">${location}</p>
-      </div>
-      <div class="${favClassChecker(isMarked)}">
-        <img class="favorite__icon" src="../../icons/${favSvgName(isMarked)}.svg">
-      </div>`;
+      const html = `<div class="modify">
+          <img class="modify__icon--edit" src="../../icons/edit.svg">
+          <img class="modify__icon--delete" src="../../icons/delete.svg">
+        </div>
+        <div class="text">
+          <p class="text__paragraph">${word}</p>
+        </div>
+        <div class="user-text">
+          <p class="user-text__paragraph">${description}</p>
+        </div>
+        <div class="date">
+          <p class="date__paragraph">${dateFormat(new Date(date))}</p>
+        </div>
+        <div class="website">
+          <p class="website__paragraph">${getLocation(location, obj)}</p>
+        </div>
+        <div class="${favClassChecker(isMarked)}">
+          <img class="favorite__icon" src="../../icons/${favSvgName(isMarked)}.svg">
+        </div>`;
 
-    const li = document.createElement('li'),
-      ul = document.querySelector('.results');
+      const li = document.createElement('li'),
+        ul = document.querySelector('.results');
 
-    li.id = e.id;
-    li.classList = "results__item";
-    li.innerHTML = html;
-    ul.append(li);
+      li.id = e.id;
+      li.classList = "results__item";
+      li.innerHTML = html;
+      ul.append(li);
+    });
+
+    const newResults = document.querySelectorAll('.results__item'),
+      wordsFound = document.querySelector('.main__wordsCount');
+
+    if (newResults.length === 1)
+      wordsFound.textContent = `${newResults.length} word found.`;
+    else if (newResults.length >= 2 || newResults.length === 0)
+      wordsFound.textContent = `${newResults.length} words found.`;
+
+    newResults.forEach(e => e.addEventListener('click', columnEvent));
   });
-
-  const newResults = document.querySelectorAll('.results__item'),
-    wordsFound = document.querySelector('.main__wordsCount');
-
-  if (newResults.length === 1)
-    wordsFound.textContent = `${newResults.length} word found.`;
-  else if (newResults.length >= 2 || newResults.length === 0)
-    wordsFound.textContent = `${newResults.length} words found.`;
-
-  newResults.forEach(e => e.addEventListener('click', columnEvent));
 }
 
 function columnEvent(e) {
@@ -236,6 +238,19 @@ function columnEvent(e) {
       e.target.setAttribute('src', "../../icons/edit.svg");
       e.target.classList = 'modify__icon--edit';
       break;
+  }
+}
+
+function getLocation(href, obj) {
+  if (obj.webUrl) {
+    let match = href.match(/^(https?\:)\/\/(([^:\/?#]*)(?:\:([0-9]+))?)([\/]{0,1}[^?#]*)(\?[^#]*|)(#.*|)$/);
+    if (match === null) {
+      return href;
+    } else {
+      return match[3];
+    }
+  } else {
+    return href;
   }
 }
 
