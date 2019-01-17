@@ -75,6 +75,52 @@ function filterSwitch(value, textList) {
     case 'not-fav':
       createElements(textList.filter(e => e.isMarked === false));
       break;
+
+    case 'webAsc':
+      textList.map((value) => {
+        let match = value.location.match(/^(https?\:)\/\/(([^:\/?#]*)(?:\:([0-9]+))?)([\/]{0,1}[^?#]*)(\?[^#]*|)(#.*|)$/);
+
+        if (match === null) {
+          value.locationFixed = value.location.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
+        } else {
+          value.locationFixed = match[3].replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
+        }
+      });
+
+      textList.sort((obj1, obj2) => obj1.locationFixed - obj2.locationFixed);
+      textList.sort((a, b) => {
+        if (a.locationFixed.toLowerCase() < b.locationFixed.toLowerCase()) return -1;
+        if (a.locationFixed.toLowerCase() > b.locationFixed.toLowerCase()) return 1;
+        return 0;
+      });
+
+      createElements(textList);
+      break;
+
+    case 'webDesc':
+      textList.map((value) => {
+        let match = value.location.match(/^(https?\:)\/\/(([^:\/?#]*)(?:\:([0-9]+))?)([\/]{0,1}[^?#]*)(\?[^#]*|)(#.*|)$/);
+
+        if (match === null) {
+          value.locationFixed = value.location.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
+        } else {
+          value.locationFixed = match[3].replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
+        }
+      });
+
+      textList.sort((obj1, obj2) => obj1.locationFixed - obj2.locationFixed);
+      textList.sort((a, b) => {
+        if (a.locationFixed.toLowerCase() < b.locationFixed.toLowerCase()) return -1;
+        if (a.locationFixed.toLowerCase() > b.locationFixed.toLowerCase()) return 1;
+        return 0;
+      });
+
+      for (let el of textList) {
+        descList.unshift(el);
+      }
+
+      createElements(descList);
+      break;
   }
 }
 
