@@ -39,17 +39,28 @@
     </header>
 
     <main class="main">
-      <!-- <div class="main__container"> -->
-        <div class="notify">
-          <h3 class="notify__title">Notifications</h3>
+        <section class="settings">
+          <h3 class="settings__title">Notifications</h3>
           <form class="form--notify">
-            <label class="notify__label">
+            <label class="settings__label">
               <input class="notify__checkbox" type="checkbox" checked>
-              <p class="notify__paragraph">enable notifications</p>
+              <p class="settings__paragraph">enable notifications</p>
             </label>
           </form>
-        </div>
-      <!-- </div> -->
+        </section>
+
+        <section class="settings">
+          <h3 class="settings__title">Website URL</h3>
+          <form class="form--webUrl">
+            <label class="settings__label">
+              <input class="webUrl__checkbox" type="checkbox" checked>
+              <p class="settings__paragraph">shorten website links</p>
+            </label>
+          </form>
+
+
+        </section>
+
     </main>
 
     <script src="options.js"></script>

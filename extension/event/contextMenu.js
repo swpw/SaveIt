@@ -21,8 +21,6 @@ function contextClicked(select) {
       storage(select.selectionText, url);
     });
   }
-
-
 }
 
 function storage(value, url) {
@@ -30,7 +28,7 @@ function storage(value, url) {
     if (obj.storedText) {
       obj.storedText.push({
         "word": value,
-        "location": getLocation(url),
+        "location": url,
         "isMarked": false,
         "date": new Date().toString(),
         "added": "popup",
@@ -43,7 +41,7 @@ function storage(value, url) {
         "storedText": [
           {
             "word": value,
-            "location": getLocation(url),
+            "location": url,
             "isMarked": false,
             "date": new Date().toString(),
             "added": "popup",

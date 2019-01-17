@@ -97,10 +97,7 @@ $maxWidth: 1140px
   min-height: 100vh
   min-height: calc(100vh - 65px)
 
-.form
-  +m('notify')
-
-.notify
+.settings
   width: 900px
   margin-bottom: 15px
   padding: 25px 0
@@ -119,10 +116,13 @@ $maxWidth: 1140px
     align-items: center
     padding: 5px
     margin-top: 20px
-  +e('checkbox')
   +e('paragraph')
     margin-left: 10px
 
 @media (max-width: 900px)
-  .notify
+  .settings
     width: 100%
+
+.form__notify
+
+.notify__checkbox
