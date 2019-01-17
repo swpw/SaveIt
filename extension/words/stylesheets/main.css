@@ -258,9 +258,6 @@ input[type="search"]::-webkit-search-results-decoration {
   padding: 15px;
   width: 250px; }
   .website__paragraph {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%; }
 
 .favorite, .not-favorite {
